@@ -16,6 +16,12 @@
                 <!-- reuse beans -->
                 <ref bean="shreejaRoy"/>
                 <ref bean="karanKyanam"/>
+                <!-- inner bean -->
+                <bean class="spring.beans.Author">
+                    <property name="firstName" value="Ajay"/>
+                    <property name="lastName" value="Prabandham"/>
+                    <property name="middleName" value="Prakash"/>
+                </bean>
             </set>
         </property>
     </bean>
@@ -24,6 +30,10 @@
     <bean id="rubyInAction" class="spring.beans.Book"/>
     <bean id="javaScriptInAction" class="spring.beans.Book"/>
     <bean id="androidInAction" class="spring.beans.Book"/>
+    <!-- beans with no ids -->
+    <bean class="spring.beans.Book"/>
+    <bean class="spring.beans.Book"/>
+    <bean class="spring.beans.Book"/>
 
     <!-- Constructor based injection -->
     <bean id="karanKyanam" class="spring.beans.Author">
@@ -31,10 +41,17 @@
         <constructor-arg type="String" value="Kyanam"/>
         <constructor-arg type="String" value="Hackastack"/>
     </bean>
-    <bean id="praneethMuskula" class="spring.beans.Author"/>
-    <bean id="shreejaRoy" class="spring.beans.Author"/>
-
-    <bean id="praveen" class="spring.beans.Student"/>
+    <!-- static factory method based injection -->
+    <bean id="praneethMuskula" class="spring.beans.Author" factory-method="createInstance">
+        <constructor-arg type="String" value="Praneeth Reddy Muskula"/>
+    </bean>
+    <bean id="shreejaRoy" class="spring.beans.Author" factory-method="createInstance">
+        <constructor-arg type="String" value="Shreeja Roy"/>
+    </bean>
+    <bean id="praveen" class="spring.beans.Author" factory-method="createInstance">
+        <constructor-arg type="String" value="Praveen"/>
+    </bean>
     <bean id="subbu" class="spring.beans.Student"/>
     <bean id="arfaa" class="spring.beans.Student"/>
+    <bean id="dhamini" class="spring.beans.Student"/>
 </beans>

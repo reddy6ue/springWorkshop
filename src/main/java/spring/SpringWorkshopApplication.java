@@ -40,7 +40,9 @@ public class SpringWorkshopApplication {
                     case 1:
                         Map<String, Book> books = context.getBeansOfType(Book.class);
                         System.out.println("The following Book beans are defined");
+                        System.out.println("----------------------------------------");
                         for(String bookName : books.keySet()) {
+                            System.out.println("bean id =" + bookName);
                             System.out.println("----------------------------------------");
                             StringWriter book = new StringWriter();
                             mapper.writeValue(book, context.getBean(bookName));
@@ -52,7 +54,9 @@ public class SpringWorkshopApplication {
                     case 2:
                         Map<String, Student> students = context.getBeansOfType(Student.class);
                         System.out.println("The following Student beans are defined");
+                        System.out.println("----------------------------------------");
                         for(String studentName : students.keySet()) {
+                            System.out.println("bean id =" + studentName);
                             System.out.println("----------------------------------------");
                             StringWriter student = new StringWriter();
                             mapper.writeValue(student, context.getBean(studentName));
@@ -64,7 +68,9 @@ public class SpringWorkshopApplication {
                     case 3:
                         Map<String, Author> authors = context.getBeansOfType(Author.class);
                         System.out.println("The following Author beans are defined");
+                        System.out.println("----------------------------------------");
                         for(String authorName : authors.keySet()) {
+                            System.out.println("bean id =" + authorName);
                             System.out.println("----------------------------------------");
                             StringWriter author = new StringWriter();
                             mapper.writeValue(author, context.getBean(authorName));
