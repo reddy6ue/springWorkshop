@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="pythonInAction" class="spring.beans.Book"/>
+    <bean id="javaInAction" class="spring.beans.Book"/>
+    <bean id="gradleInAction" class="spring.beans.Book"/>
+    <bean id="rubyInAction" class="spring.beans.Book"/>
+    <bean id="javaScriptInAction" class="spring.beans.Book"/>
+    <bean id="androidInAction" class="spring.beans.Book"/>
+
+    <bean id="karanKyanam" class="spring.beans.Author"/>
+    <bean id="praneethMuskula" class="spring.beans.Author"/>
+    <bean id="shreejaRoy" class="spring.beans.Author"/>
+
+    <bean id="praveen" class="spring.beans.Student"/>
+    <bean id="subbu" class="spring.beans.Student"/>
+    <bean id="arfaa" class="spring.beans.Student"/>
+</beans>
