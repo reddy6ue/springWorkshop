@@ -62,4 +62,23 @@
     </bean>
     <bean id="arfaa" class="spring.beans.Student"/>
     <bean id="dhamini" class="spring.beans.Student"/>
+
+    <!--
+        real world usage scenario
+        Externalize the log4j configuration file so it can be refreshed without having to restart
+        http://2mohitarora.blogspot.in/2011/10/externalize-log4j-log4jconfigurer.html
+    -->
+    <bean id="log4jInitialization"
+          class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetClass"
+                  value="org.springframework.util.Log4jConfigurer"/>
+        <property name="targetMethod" value="initLogging"/>
+        <property name="arguments">
+            <list>
+                <value>classpath:log4j.properties</value>
+                <value>30</value>
+            </list>
+        </property>
+    </bean>
+
 </beans>

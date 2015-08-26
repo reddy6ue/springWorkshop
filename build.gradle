@@ -13,7 +13,6 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'io.spring.dependency-management'
 apply plugin: 'application'
 
 jar {
@@ -21,6 +20,7 @@ jar {
     version = '0.0.1-SNAPSHOT'
     mainClassName = 'spring.SpringWorkshopApplication'
 }
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -31,12 +31,11 @@ repositories {
     }
 }
 
-
 dependencies {
-    compile (
-        'org.springframework:spring-core:4.2.0.RELEASE','org.springframework:spring-context:4.2.0.RELEASE','com.fasterxml.jackson.core:jackson-databind:2.6.1'
-    )
-    testCompile { "junit:junit:4.12"}
+    compile 'org.springframework:spring-core:4.2.0.RELEASE'
+    compile 'org.springframework:spring-context:4.2.0.RELEASE'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.6.1'
+    testCompile 'junit:junit:4.12'
 }
 
 
