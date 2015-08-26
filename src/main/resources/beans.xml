@@ -45,13 +45,21 @@
     <bean id="praneethMuskula" class="spring.beans.Author" factory-method="createInstance">
         <constructor-arg type="String" value="Praneeth Reddy Muskula"/>
     </bean>
-    <bean id="shreejaRoy" class="spring.beans.Author" factory-method="createInstance">
+    <!-- factory bean method based injection -->
+    <bean id="shreejaRoy" class="spring.beans.Author" factory-bean="workshopBeanFactory"
+          factory-method="createAuthorInstance">
         <constructor-arg type="String" value="Shreeja Roy"/>
     </bean>
     <bean id="praveen" class="spring.beans.Author" factory-method="createInstance">
         <constructor-arg type="String" value="Praveen"/>
     </bean>
-    <bean id="subbu" class="spring.beans.Student"/>
+
+    <!-- factory bean -->
+    <bean id="workshopBeanFactory" class="spring.beans.WorkShopBeanFactory"/>
+    <bean id="subbu" class="spring.beans.Student" factory-bean="workshopBeanFactory"
+            factory-method="createStudentInstance">
+        <constructor-arg type="String" value="Hariharan Subrahmanian"/>
+    </bean>
     <bean id="arfaa" class="spring.beans.Student"/>
     <bean id="dhamini" class="spring.beans.Student"/>
 </beans>

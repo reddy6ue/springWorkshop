@@ -54,4 +54,29 @@ public class Student {
     public void setReservedBooks(Set<Book> reservedBooks) {
         this.reservedBooks = reservedBooks;
     }
+
+    public static Student createStudentInstance(String fullName) {
+        String[] nameParts = fullName.split(" ");
+        Student student = new Student();
+        if (nameParts != null) {
+            switch (nameParts.length) {
+                case 1:
+                    student.setFirstName(nameParts[0]);
+                    student.setLastName("");
+                    student.setMiddleName("");
+                    break;
+                case 2:
+                    student.setFirstName(nameParts[0]);
+                    student.setLastName(nameParts[1]);
+                    student.setMiddleName("");
+                    break;
+                case 3:
+                    student.setFirstName(nameParts[0]);
+                    student.setMiddleName(nameParts[2]);
+                    student.setLastName(nameParts[1]);
+                    break;
+            }
+        }
+        return student;
+    }
 }
