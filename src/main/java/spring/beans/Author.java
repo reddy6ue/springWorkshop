@@ -8,6 +8,15 @@ public class Author {
     private String lastName;
     private String middleName;
 
+    public Author(){}
+
+    public Author(String firstName, String lastName, String middleName)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.middleName = middleName;
+    }
+
     public String getFirstName() {
         return firstName;
     }

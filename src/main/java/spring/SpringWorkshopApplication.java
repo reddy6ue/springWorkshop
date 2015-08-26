@@ -1,8 +1,11 @@
 package spring;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.io.StringWriter;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -14,8 +17,14 @@ import spring.beans.Student;
 public class SpringWorkshopApplication {
 
     public static void main(String[] args) {
+        //Jackson parser
+        // This can also be pushed into beans.xml
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
+
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
         Scanner sc = new Scanner(System.in);
+
         for (; ; ) {
             try {
                 System.out.println("1.List Books");
@@ -32,7 +41,11 @@ public class SpringWorkshopApplication {
                         Map<String, Book> books = context.getBeansOfType(Book.class);
                         System.out.println("The following Book beans are defined");
                         for(String bookName : books.keySet()) {
-                            System.out.println(bookName);
+                            System.out.println("----------------------------------------");
+                            StringWriter book = new StringWriter();
+                            mapper.writeValue(book, context.getBean(bookName));
+                            System.out.println(book);
+                            System.out.println("----------------------------------------");
                         }
                         System.out.println("========================================");
                         break;
@@ -40,7 +53,11 @@ public class SpringWorkshopApplication {
                         Map<String, Student> students = context.getBeansOfType(Student.class);
                         System.out.println("The following Student beans are defined");
                         for(String studentName : students.keySet()) {
-                            System.out.println(studentName);
+                            System.out.println("----------------------------------------");
+                            StringWriter student = new StringWriter();
+                            mapper.writeValue(student, context.getBean(studentName));
+                            System.out.println(student);
+                            System.out.println("----------------------------------------");
                         }
                         System.out.println("========================================");
                         break;
@@ -48,7 +65,11 @@ public class SpringWorkshopApplication {
                         Map<String, Author> authors = context.getBeansOfType(Author.class);
                         System.out.println("The following Author beans are defined");
                         for(String authorName : authors.keySet()) {
-                            System.out.println(authorName);
+                            System.out.println("----------------------------------------");
+                            StringWriter author = new StringWriter();
+                            mapper.writeValue(author, context.getBean(authorName));
+                            System.out.println(author);
+                            System.out.println("----------------------------------------");
                         }
                         System.out.println("========================================");
                         break;

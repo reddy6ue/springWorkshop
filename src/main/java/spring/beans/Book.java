@@ -1,6 +1,6 @@
 package spring.beans;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Set;
 
 /**
  * Created by Praneeth on 8/25/2015.
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class Book {
     private String title;
 
-    private Author author;
+    private Set<Author> authors;
 
     private int yearPublished;
 
@@ -22,12 +22,12 @@ public class Book {
         this.title = title;
     }
 
-    public Author getAuthor() {
-        return author;
+    public Set<Author> getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
     }
 
     public int getYearPublished() {

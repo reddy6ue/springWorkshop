@@ -3,14 +3,34 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
          http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="pythonInAction" class="spring.beans.Book"/>
+    <!-- setter based injection -->
+    <bean id="pythonInAction" class="spring.beans.Book">
+        <!-- inject string value -->
+        <property name="title" value="Python in Action - Fear the Ananconda!!!!"/>
+        <!-- inject int value -->
+        <property name="edition" value="1"/>
+        <property name="yearPublished" value="2000"/>
+        <!-- Inject a collection of beans into property -->
+        <property name="authors">
+            <set>
+                <!-- reuse beans -->
+                <ref bean="shreejaRoy"/>
+                <ref bean="karanKyanam"/>
+            </set>
+        </property>
+    </bean>
     <bean id="javaInAction" class="spring.beans.Book"/>
     <bean id="gradleInAction" class="spring.beans.Book"/>
     <bean id="rubyInAction" class="spring.beans.Book"/>
     <bean id="javaScriptInAction" class="spring.beans.Book"/>
     <bean id="androidInAction" class="spring.beans.Book"/>
 
-    <bean id="karanKyanam" class="spring.beans.Author"/>
+    <!-- Constructor based injection -->
+    <bean id="karanKyanam" class="spring.beans.Author">
+        <constructor-arg type="String" value="Karan"/>
+        <constructor-arg type="String" value="Kyanam"/>
+        <constructor-arg type="String" value="Hackastack"/>
+    </bean>
     <bean id="praneethMuskula" class="spring.beans.Author"/>
     <bean id="shreejaRoy" class="spring.beans.Author"/>
 
