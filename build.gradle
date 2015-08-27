@@ -27,7 +27,7 @@ targetCompatibility = 1.8
 repositories {
     mavenCentral()
     maven {
-            url 'http://maven.springframework.org/release'
+        url 'http://maven.springframework.org/release'
     }
 }
 
@@ -35,6 +35,7 @@ dependencies {
     compile 'org.springframework:spring-core:4.2.0.RELEASE'
     compile 'org.springframework:spring-context:4.2.0.RELEASE'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.6.1'
+    compile 'log4j:log4j:1.2.17'
     testCompile 'junit:junit:4.12'
 }
 
@@ -47,5 +48,5 @@ eclipse {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
+    gradleVersion = '2.6'
 }
