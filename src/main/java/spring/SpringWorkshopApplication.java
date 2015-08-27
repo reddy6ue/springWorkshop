@@ -22,7 +22,7 @@ public class SpringWorkshopApplication {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("classpath*:beans.xml");
         Scanner sc = new Scanner(System.in);
 
         for (; ; ) {
